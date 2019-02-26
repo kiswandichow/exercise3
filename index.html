@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <script src="assets/js/jquery.js"></script>
+        <script src="assets/js/main.js"></script>
+        <link rel="stylesheet" href="assets/css/style.css">
+        
+    </head>
+    <body>
+        <h2> MENAMPILKAN DATA DARI <a href="https://swapi.co/api/planets/" target="_blank">SWAPI</a></h2>
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+        <table id="myTable">
+            <tr class="header">
+                <th>NO</th>
+                <th>NAME</th>
+                <th>DIAMETER</th>
+                <th>CLIMATE</th>
+                <th>GRAVITY</th>
+                <th>TERRAIN</th>
+                <th>POPULATION</th>
+            </tr>
+        </table>
+
+        <script>
+            function myFunction() {
+              var input, filter, table, tr, td, i, txtValue;
+              input = document.getElementById("myInput");
+              filter = input.value.toUpperCase();
+              table = document.getElementById("myTable");
+              tr = table.getElementsByTagName("tr");
+              for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[1];
+                if (td) {
+                  txtValue = td.textContent || td.innerText;
+                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                  } else {
+                    tr[i].style.display = "none";
+                  }
+                }       
+              }
+            }
+            </script>
+            
+    </body>
+</html>
